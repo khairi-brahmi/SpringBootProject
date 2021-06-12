@@ -25,7 +25,7 @@ public class OrderController {
 	@Autowired
 	CartService cartService;
 	ProductServices proService;
-	@RequestMapping("checkout_order")
+	@RequestMapping("addOrder")
   	public ResponseEntity<?> checkout_order(@RequestBody HashMap<String,String> addCartRequest) {
 		try {
 			String keys[] = {"userId","total_price","pay_type","deliveryAddress"};
@@ -42,7 +42,7 @@ public class OrderController {
 					String orderId = ""+getOrderId();
 					CheckoutCart cart = new CheckoutCart();
 					cart.setPayment_type(addCartRequest.get("pay_type"));
-					cart.setPrice(total_amt);
+					cart.setPrice(addCartRequest.get("total_price"));
 					cart.setUser_id(user_Id);
 					cart.setOrder_id(orderId);
 					cart.setProduct(addCart.getProduct());
@@ -67,12 +67,12 @@ public class OrderController {
 	@RequestMapping("getOrdersByUserId")
 		public ResponseEntity<?> getOrdersByUserId(@RequestBody HashMap<String,String> ordersRequest) {
 		try {
-			String keys[] = {"userId"};	
+			String keys[] = {"userId"};
 			return ResponseEntity.ok(new ApiResponse("Order placed successfully", ""));
 		}catch(Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(new ApiResponse(e.getMessage(), ""));
 		}
-		
+
 	}
 }

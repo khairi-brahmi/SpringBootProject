@@ -21,7 +21,7 @@ public class CheckoutCart {
 	long user_id;
 	@OneToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "product_id")
-	Products product;	
+	Products product;
 	//long ;
 	int qty;
 	double price;
@@ -88,6 +88,8 @@ public class CheckoutCart {
 	public void setProduct(Products product) {
 		this.product = product;
 	}
-	
-	
+
+
+	public void setPrice(String total_price) {
+	}
 }

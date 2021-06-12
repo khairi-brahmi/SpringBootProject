@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Products {
 	@Id
 	long id;
-	String name,price,added_on,description,category_id;
+	String name,price,added_on,description,image,category_id;
 	public long getId() {
 		return id;
 	}
@@ -25,6 +25,9 @@ public class Products {
 	}
 	public String getDescription() {
 		return description;
+	}
+	public String getImage() {
+		return image;
 	}
 	public void setDescription(String name) {
 		this.description = description;

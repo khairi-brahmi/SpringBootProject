@@ -103,7 +103,7 @@ let url="http://localhost:8080/api/signup/user"
      <br/>
 
         <Link to="/client">  Se Connecter </Link>   <br/>     <Link to="/"> Page d'accueil  </Link>
-         <br/>  <br/>  <br/> 
+         <br/>  <br/> 
       </div>
       );
     };

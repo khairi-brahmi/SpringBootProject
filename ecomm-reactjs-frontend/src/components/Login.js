@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Alert from '@material-ui/lab/Alert';
 import { Divider } from "@material-ui/core";
 const Login = () => {
-
+  setTimeout((()=> localStorage.removeItem("new")),6000)
   let url="http://localhost:8080/api/login/user"
   const [mob, setMob] = useState("")
   const [err, setErr] = useState(false)
@@ -42,6 +42,13 @@ const Login = () => {
         <br/>  <br/>  <br/>
           <h2>Se Connecter</h2>
           <br/>
+          {localStorage.getItem("new")?
+           <Alert style={{textAlign:"center"}} severity="success">Votre compte a été créé avec succès! Merci de se connecter</Alert>
+           :
+           null
+          }
+         
+          <br/>
           <div className="username">
             <input
               type="text"
@@ -76,7 +83,7 @@ const Login = () => {
      <br/>
 
         <Link to="/register">Creér un compte</Link> <br/>     <Link to="/"> Page d'accueil  </Link>
-        <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/> 
+        <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/> <br/> 
       </div>
       );
     };
